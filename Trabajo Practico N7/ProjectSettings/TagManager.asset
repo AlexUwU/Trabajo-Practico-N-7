@@ -3,7 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Obstacle1
+  - Obstacle2
+  - Floor
+  - People
+  - Money
+  - Pizza
+  - Amarillo
+  - Verde
+  - Azul
+  - Rojo
+  - DepositoAmarillo
+  - DepositoVerde
+  - DepositoAzul
+  - DepositoRojo
   layers:
   - Default
   - TransparentFX

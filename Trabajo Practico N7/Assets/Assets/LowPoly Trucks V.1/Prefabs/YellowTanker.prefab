@@ -139,6 +139,13 @@ MonoBehaviour:
   - {fileID: 457640}
   maxTorque: 5000
   centerOfMass: {fileID: 418064}
+  acclSensitivity: 5
+  speed: 10
+  contAmarillo: 0
+  contVerde: 0
+  contAzul: 0
+  contRojo: 0
+  playerInterface: {fileID: 0}
 --- !u!1 &111714
 GameObject:
   m_ObjectHideFlags: 0
