@@ -10,6 +10,13 @@ public class MovementControl : MonoBehaviour {
     public float acclSensitivity = 5.0f;
     public float speed = 10.0f;
 
+
+    public int contAmarillo = 0;
+    public int contVerde = 0;
+    public int contAzul = 0;
+    public int contRojo = 0;
+
+    public PlayerInterface playerInterface;
     void Start()
     {
         m_rigidbody = GetComponent<Rigidbody>();
@@ -46,6 +53,36 @@ public class MovementControl : MonoBehaviour {
             wheelColliders[i].GetWorldPose(out pos, out quat);
             tyreMeshes[i].position = pos;
             tyreMeshes[i].rotation = quat;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //Depositos
+
+        if (other.gameObject.CompareTag("DepositoAmarillo") && contAmarillo <= 5)
+        {
+            contAmarillo = 0;
+            playerInterface.ActualizarCantidadItem("Amarillo", contAmarillo);
+            Debug.Log("Amarillo: " + contAmarillo);
+        }
+
+        if (other.gameObject.CompareTag("DepositoVerde") && contVerde <= 5)
+        {
+            contVerde = 0;
+            Debug.Log("Verde: " + contVerde);
+        }
+
+        if (other.gameObject.CompareTag("DepositoAzul") && contAzul <= 5)
+        {
+            contAzul = 0;
+            Debug.Log("Azul: " + contAzul);
+        }
+
+        if (other.gameObject.CompareTag("DepositoRojo") && contRojo <= 5)
+        {
+            contRojo = 0;
+            Debug.Log("Rojo: " + contRojo);
         }
     }
 }

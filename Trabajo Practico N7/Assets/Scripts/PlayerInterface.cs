@@ -26,12 +26,15 @@ public class PlayerInterface : MonoBehaviour
     private float puntaje = 0f;
     private bool juegoPausado = false;
 
+
+    public MovementControl player;
+
     public void Start()
     {
-        inventario.Add(new Item("Item1", iconoItem1));
-        inventario.Add(new Item("Item2", iconoItem2));
-        inventario.Add(new Item("Item3", iconoItem3));
-        inventario.Add(new Item("Item4", iconoItem4));
+        inventario.Add(new Item("Amarillo", iconoItem1));
+        inventario.Add(new Item("Azul", iconoItem2));
+        inventario.Add(new Item("Verde", iconoItem3));
+        inventario.Add(new Item("Rojo", iconoItem4));
         ActualizarInventario();
     }
     public void Update()
@@ -93,6 +96,17 @@ public class PlayerInterface : MonoBehaviour
             iconoRanura.sprite = inventario[i].icono;
             textoRanura.text = inventario[i].cantidad.ToString();
 
+        }
+    }
+
+    public void ActualizarCantidadItem(string nombre, int cantidad)
+    {
+        Item item = inventario.Find(item => item.nombre == nombre);
+
+        if (item != null)
+        {
+            item.cantidad = cantidad;
+            ActualizarInventario();
         }
     }
 }
