@@ -39,9 +39,9 @@ public class PlayerInterface : MonoBehaviour
         if (!juegoPausado)
         {
             tiempo += Time.deltaTime;
-            tiempoTexto.text = "Tiempo: " + Mathf.RoundToInt(tiempo);
+            tiempoTexto.text = "" + Mathf.RoundToInt(tiempo);
 
-            puntajeTexto.text = "Puntaje: " + puntaje;
+            puntajeTexto.text = "" + puntaje;
         }
     }
 
