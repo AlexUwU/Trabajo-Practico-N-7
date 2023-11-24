@@ -16,11 +16,13 @@ public class MovementControl : MonoBehaviour {
     public int contAzul = 0;
     public int contRojo = 0;
 
-    public PlayerInterface playerInterface;
+    PlayerInterface playerInterface;
     void Start()
     {
         m_rigidbody = GetComponent<Rigidbody>();
         m_rigidbody.centerOfMass = centerOfMass.localPosition;
+
+        playerInterface = FindObjectOfType<PlayerInterface>();
     }
 
     void Update()
@@ -62,6 +64,10 @@ public class MovementControl : MonoBehaviour {
 
         if (other.gameObject.CompareTag("DepositoAmarillo") && contAmarillo <= 5)
         {
+            if (contAmarillo != 0)
+            {
+                playerInterface.AumentarPuntaje(contAmarillo * 10);
+            }
             contAmarillo = 0;
             playerInterface.ActualizarCantidadItem("Amarillo", contAmarillo);
             Debug.Log("Amarillo: " + contAmarillo);
@@ -69,18 +75,34 @@ public class MovementControl : MonoBehaviour {
 
         if (other.gameObject.CompareTag("DepositoVerde") && contVerde <= 5)
         {
+            if (contVerde != 0)
+            {
+                playerInterface.AumentarPuntaje(contVerde * 10);
+            }
             contVerde = 0;
+            playerInterface.ActualizarCantidadItem("Verde", contVerde);
             Debug.Log("Verde: " + contVerde);
         }
 
         if (other.gameObject.CompareTag("DepositoAzul") && contAzul <= 5)
         {
+            if (contAzul != 0)
+            {
+                playerInterface.AumentarPuntaje(contAzul * 10);
+            }
             contAzul = 0;
+            playerInterface.ActualizarCantidadItem("Azul", contAzul);
             Debug.Log("Azul: " + contAzul);
         }
 
         if (other.gameObject.CompareTag("DepositoRojo") && contRojo <= 5)
         {
+            if (contRojo != 0)
+            {
+                playerInterface.AumentarPuntaje(contRojo * 10);
+            }
+            contRojo = 0;
+            playerInterface.ActualizarCantidadItem("Rojo", contRojo);
             contRojo = 0;
             Debug.Log("Rojo: " + contRojo);
         }
