@@ -11,7 +11,7 @@ public class PlayerInterface : MonoBehaviour
     public TextMeshProUGUI tiempoTexto;
     public TextMeshProUGUI puntajeTexto;
     public GameObject menuPausa;
-    public GameObject menuPerder;
+    public GameObject menuTutorial;
 
     public List<Item> inventario = new List<Item>();
     public Transform ranurasParent;
@@ -25,7 +25,7 @@ public class PlayerInterface : MonoBehaviour
 
     public float tiempo;
     private float puntaje = 0f;
-    private bool juegoPausado = false;
+    private bool juegoPausado = true;
 
 
     MovementControl player;
@@ -39,6 +39,10 @@ public class PlayerInterface : MonoBehaviour
         ActualizarInventario();
 
         player = FindObjectOfType<MovementControl>();
+
+        menuTutorial.SetActive(true);
+        Time.timeScale = 0f;
+
     }
     public void Update()
     {
@@ -75,6 +79,13 @@ public class PlayerInterface : MonoBehaviour
         Time.timeScale = 1f;
 
         menuPausa.SetActive(false);
+    }
+
+    public void EmpezarJuego()
+    {
+        juegoPausado = false;
+        Time.timeScale = 1f;
+        menuTutorial.SetActive(false);
     }
 
     public void CargarEscena(string escena)
