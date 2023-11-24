@@ -8,7 +8,7 @@ public class MovementControl : MonoBehaviour {
     private Rigidbody m_rigidbody;
     public Transform centerOfMass;
     public float acclSensitivity = 5.0f;
-    public float speed = 10.0f;
+    public float speed;
 
 
     public int contAmarillo = 0;
