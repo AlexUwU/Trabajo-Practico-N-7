@@ -7,11 +7,13 @@ public class TrashBehaviour : MonoBehaviour
 
     MovementControl player;
     PlayerInterface playerInterface;
+    AudioSource sonidoRecoger;
 
     private void Start()
     {
         player = FindObjectOfType<MovementControl>();
         playerInterface = FindObjectOfType<PlayerInterface>();
+        sonidoRecoger = FindObjectOfType<AudioSource>();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -23,6 +25,7 @@ public class TrashBehaviour : MonoBehaviour
             Destroy(this.gameObject);
             Debug.Log("Amarillo: " + player.contAmarillo);
             Debug.Log("Destroy Amarillo");
+            sonidoRecoger.Play();
         }
 
         if (other.gameObject.CompareTag("Player") && this.gameObject.CompareTag("Verde") && player.contVerde < 5)
@@ -33,6 +36,7 @@ public class TrashBehaviour : MonoBehaviour
             Destroy(this.gameObject);
             Debug.Log("Verde: " + player.contVerde);
             Debug.Log("Destroy Verde");
+            sonidoRecoger.Play();
         }
 
         if (other.gameObject.CompareTag("Player") && this.gameObject.CompareTag("Azul") && player.contAzul < 5)
@@ -43,6 +47,7 @@ public class TrashBehaviour : MonoBehaviour
             Destroy(this.gameObject);
             Debug.Log("Azul: " + player.contAzul);
             Debug.Log("Destroy Azul");
+            sonidoRecoger.Play();
         }
 
         if (other.gameObject.CompareTag("Player") && this.gameObject.CompareTag("Rojo") && player.contRojo < 5)
@@ -53,6 +58,7 @@ public class TrashBehaviour : MonoBehaviour
             Destroy(this.gameObject);
             Debug.Log("Rojo: " + player.contRojo);
             Debug.Log("Destroy Rojo");
+            sonidoRecoger.Play();
         }
     }
 }
