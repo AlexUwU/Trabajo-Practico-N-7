@@ -11,6 +11,7 @@ public class PlayerInterface : MonoBehaviour
     public TextMeshProUGUI tiempoTexto;
     public TextMeshProUGUI puntajeTexto;
     public GameObject menuPausa;
+    public GameObject menuPerder;
 
     public List<Item> inventario = new List<Item>();
     public Transform ranurasParent;
@@ -22,7 +23,7 @@ public class PlayerInterface : MonoBehaviour
     public Sprite iconoItem3;
     public Sprite iconoItem4;
 
-    private float tiempo = 0f;
+    public float tiempo;
     private float puntaje = 0f;
     private bool juegoPausado = false;
 
@@ -41,10 +42,15 @@ public class PlayerInterface : MonoBehaviour
     {
         if (!juegoPausado)
         {
-            tiempo += Time.deltaTime;
+            tiempo -= Time.deltaTime;
             tiempoTexto.text = "" + Mathf.RoundToInt(tiempo);
 
             puntajeTexto.text = "" + puntaje;
+
+            if (tiempo <= 0)
+            {
+                MostrarPantallaDerrota(puntaje);
+            }
         }
     }
 
@@ -108,5 +114,12 @@ public class PlayerInterface : MonoBehaviour
             item.cantidad = cantidad;
             ActualizarInventario();
         }
+    }
+
+    public void MostrarPantallaDerrota(float puntaje)
+    {
+        PlayerPrefs.SetFloat("Puntaje",puntaje);
+
+        SceneManager.LoadScene("Derrota");
     }
 }
