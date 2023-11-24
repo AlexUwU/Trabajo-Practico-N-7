@@ -17,6 +17,10 @@ public class MovementControl : MonoBehaviour {
     public int contRojo = 0;
 
     PlayerInterface playerInterface;
+
+    public AudioSource fxSource;
+    public AudioSource sonidoMotor;
+    public AudioClip sonidoDejar;
     void Start()
     {
         m_rigidbody = GetComponent<Rigidbody>();
@@ -58,6 +62,11 @@ public class MovementControl : MonoBehaviour {
         }
     }
 
+    public void PlaySoundLeaving()
+    {
+        sonidoMotor.PlayOneShot(sonidoDejar);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         //Depositos
@@ -67,6 +76,7 @@ public class MovementControl : MonoBehaviour {
             if (contAmarillo != 0)
             {
                 playerInterface.AumentarPuntaje(contAmarillo * 10);
+                PlaySoundLeaving();
             }
             contAmarillo = 0;
             playerInterface.ActualizarCantidadItem("Amarillo", contAmarillo);
@@ -78,6 +88,7 @@ public class MovementControl : MonoBehaviour {
             if (contVerde != 0)
             {
                 playerInterface.AumentarPuntaje(contVerde * 10);
+                PlaySoundLeaving();
             }
             contVerde = 0;
             playerInterface.ActualizarCantidadItem("Verde", contVerde);
@@ -89,6 +100,7 @@ public class MovementControl : MonoBehaviour {
             if (contAzul != 0)
             {
                 playerInterface.AumentarPuntaje(contAzul * 10);
+                PlaySoundLeaving();
             }
             contAzul = 0;
             playerInterface.ActualizarCantidadItem("Azul", contAzul);
@@ -100,10 +112,10 @@ public class MovementControl : MonoBehaviour {
             if (contRojo != 0)
             {
                 playerInterface.AumentarPuntaje(contRojo * 10);
+                PlaySoundLeaving();
             }
             contRojo = 0;
             playerInterface.ActualizarCantidadItem("Rojo", contRojo);
-            contRojo = 0;
             Debug.Log("Rojo: " + contRojo);
         }
     }

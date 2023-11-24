@@ -30,6 +30,12 @@ public class PlayerInterface : MonoBehaviour
 
     MovementControl player;
 
+    public AudioSource fxSource;
+    public AudioClip sonidoBoton;
+    public AudioSource musica;
+    public AudioSource motor;
+
+
     public void Start()
     {
         inventario.Add(new Item("Amarillo", iconoItem1));
@@ -71,6 +77,10 @@ public class PlayerInterface : MonoBehaviour
         Time.timeScale = 0f;
 
         menuPausa.SetActive(true);
+
+        PlaySoundButton();
+        musica.Pause();
+        motor.Pause();
     }
 
     public void ReanudarJuego()
@@ -79,6 +89,10 @@ public class PlayerInterface : MonoBehaviour
         Time.timeScale = 1f;
 
         menuPausa.SetActive(false);
+
+        PlaySoundButton();
+        musica.Play();
+        motor.Play();
     }
 
     public void EmpezarJuego()
@@ -86,11 +100,18 @@ public class PlayerInterface : MonoBehaviour
         juegoPausado = false;
         Time.timeScale = 1f;
         menuTutorial.SetActive(false);
+        PlaySoundButton();
+        motor.Play();
     }
 
     public void CargarEscena(string escena)
     {
         SceneManager.LoadScene(escena);
+    }
+
+    public void PlaySoundButton()
+    {
+        fxSource.PlayOneShot(sonidoBoton);
     }
 
     public void ActualizarInventario()
