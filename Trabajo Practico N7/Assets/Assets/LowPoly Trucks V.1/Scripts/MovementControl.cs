@@ -67,6 +67,7 @@ public class MovementControl : MonoBehaviour {
             if (contAmarillo != 0)
             {
                 playerInterface.AumentarPuntaje(contAmarillo * 10);
+                playerInterface.tiempo = playerInterface.tiempo + 10 * contAmarillo;
             }
             contAmarillo = 0;
             playerInterface.ActualizarCantidadItem("Amarillo", contAmarillo);
@@ -78,6 +79,7 @@ public class MovementControl : MonoBehaviour {
             if (contVerde != 0)
             {
                 playerInterface.AumentarPuntaje(contVerde * 10);
+                playerInterface.tiempo = playerInterface.tiempo + 10 * contVerde;
             }
             contVerde = 0;
             playerInterface.ActualizarCantidadItem("Verde", contVerde);
@@ -89,6 +91,7 @@ public class MovementControl : MonoBehaviour {
             if (contAzul != 0)
             {
                 playerInterface.AumentarPuntaje(contAzul * 10);
+                playerInterface.tiempo = playerInterface.tiempo + 10 * contAzul;
             }
             contAzul = 0;
             playerInterface.ActualizarCantidadItem("Azul", contAzul);
@@ -100,6 +103,7 @@ public class MovementControl : MonoBehaviour {
             if (contRojo != 0)
             {
                 playerInterface.AumentarPuntaje(contRojo * 10);
+                playerInterface.tiempo = playerInterface.tiempo + 10 * contRojo;
             }
             contRojo = 0;
             playerInterface.ActualizarCantidadItem("Rojo", contRojo);
