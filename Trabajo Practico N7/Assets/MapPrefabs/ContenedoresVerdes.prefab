@@ -58,7 +58,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8767a9a24998744eb3062b83ebda847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &5805569123322071926
 GameObject:
   m_ObjectHideFlags: 0
@@ -68,6 +67,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8899694232198055105}
+  - component: {fileID: 4914817873301059438}
   m_Layer: 0
   m_Name: ContenedoresVerdes
   m_TagString: Untagged
@@ -95,6 +95,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4914817873301059438
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5805569123322071926}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3586426, y: 2.1922946, z: 4.7516174}
+  m_Center: {x: 0.8629761, y: -0.7890473, z: -0.9481659}
 --- !u!1001 &1872743891253953117
 PrefabInstance:
   m_ObjectHideFlags: 0

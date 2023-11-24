@@ -28,7 +28,7 @@ public class PlayerInterface : MonoBehaviour
     private bool juegoPausado = false;
 
 
-    public MovementControl player;
+    MovementControl player;
 
     public void Start()
     {
@@ -37,6 +37,8 @@ public class PlayerInterface : MonoBehaviour
         inventario.Add(new Item("Verde", iconoItem3));
         inventario.Add(new Item("Rojo", iconoItem4));
         ActualizarInventario();
+
+        player = FindObjectOfType<MovementControl>();
     }
     public void Update()
     {
