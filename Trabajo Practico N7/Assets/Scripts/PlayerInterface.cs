@@ -34,6 +34,7 @@ public class PlayerInterface : MonoBehaviour
     public AudioClip sonidoBoton;
     public AudioSource musica;
     public AudioSource motor;
+    public AudioSource sonido;
 
 
     public void Start()
@@ -147,6 +148,7 @@ public class PlayerInterface : MonoBehaviour
         {
             item.cantidad = cantidad;
             ActualizarInventario();
+            sonido.Play();
         }
     }
 
